@@ -1,0 +1,40 @@
+<%= form_with model: @employee do |form| %>
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email%>
+    <%= form.email_field :email%>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_num %>
+    <%= form.number_field :phone_num %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hire_date %>
+    <%= form.date_field :hire_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_title %>
+    <%= form.text_field :job_title %>
+  </div>
+
+    <div class="field">
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
