@@ -1,16 +1,46 @@
 
-<h1>Employees</h1>
+<h1>Employees Table</h1>
 
-
-
-<div id="employees">
-  <% @employee.each do |employee| %>
-  
-      <%= employee.first_name %> <%= employee.last_name %>
-      <br/>
-      <%= link_to "Show this employee details", employee %>
-    </p>
-  <% end %>
-</div>
+<br/>
 
 <%= link_to "Add new employee", new_employee_path %>
+
+<br/>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Hire Date</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Department</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @employee.each do |employee| %>
+  
+      <tr>
+    
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name%></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.phone_num%></td>
+        <td><%= employee.hire_date %></td>
+        <td><%= employee.job_title %></td>
+        <td><%= employee.department %></td>
+        <td>
+        
+          <%= link_to "Show", employee_path(employee) %>
+          <%= link_to "Delete", employee, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger btn-sm" %>
+          <%= link_to "Edit",   edit_employee_path(employee) %>
+        </td>
+      </tr>
+ 
+    <% end %>
+  </tbody>
+</table>  
+
+
