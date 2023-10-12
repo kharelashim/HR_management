@@ -1,14 +1,39 @@
-
- <p>Name of the employee: <%= @employee.first_name%> <%= @employee.last_name%> </p>
- <p>Email: <%= @employee.email%></p>
- <p>Phone Number: <%= @employee.phone_num%>
- <p>Hire Date: <%= @employee.hire_date%>
- <p>Job Title: <%= @employee.job_title%>
- <p>Department: <%= @employee.department%>
-
-
-<div>
+<div class="show">
   
-  <%= link_to "Back to employees", employees_path %>
+  <p>
+    <span class="name">Name of the employee: </span>
+    <span ><%= @employee.first_name%> <%= @employee.last_name%> </span> 
+  </p>
+
+  <p>
+    <span class="name">Email: </span>
+    <span><%= @employee.email%></span>
+  </p>
+
+ <p>
+    <span class="name">Phone Number: </span>
+    <span> <%= @employee.phone_num%> </span>
+  </p>
+
+ <p>
+    <span class="name">Hire Date: </span>
+    <span><%= @employee.hire_date%> </span>
+  </p>
+
+ <p>
+    <span class="name">Job Title: </span>
+    <span><%= @employee.job_title%></span>
+  </p>
+
+ <p>
+    <span class="name">Department: </span>
+    <span> <%= @employee.department%></span>
+  </p>
+ </div>
+
+
+<div class="button">
+  
+  <button><%= link_to "Back to employees", employees_path %></button>
   
 </div>
