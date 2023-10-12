@@ -16,7 +16,8 @@ class EmployeesController < ApplicationController
     def create
         @employee =  Employee.new(employee_params)
         if @employee.save
-            redirect_to employee_path(@employee), notice: 'Employee was sucessfully created'
+            flash[:notice] = 'Employee was sucessfully created'
+            redirect_to employees_path
         else 
             render :new
         end
@@ -28,14 +29,14 @@ class EmployeesController < ApplicationController
 
     def update
         if @employee.update(employee_params)
-            redirect_to employee_path(@employee), notice: 'Employee was sucessfully updated'
+            redirect_to employees_path, notice: 'Employee was sucessfully updated'
         else
             render :edit
         end
     end
 
     def destroy
-        byebug
+      
         @employee.destroy
         redirect_to employees_path, notice: 'Employee was sucessfully destroyed'
     end

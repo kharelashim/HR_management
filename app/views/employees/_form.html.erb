@@ -1,40 +1,37 @@
+<div class="row">
+<div class=" col-lg-3">
 <%= form_with model: @employee do |form| %>
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name , class:"form-control", placeholder:"First Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :email%>
-    <%= form.email_field :email%>
+    <%= form.email_field :email, class:"form-control", placeholder:"Email"%>
   </div>
 
   <div class="field">
-    <%= form.label :phone_num %>
-    <%= form.number_field :phone_num %>
+    <%= form.number_field :phone_num, class:"form-control", placeholder:"Phone Number" %>
   </div>
 
   <div class="field">
-    <%= form.label :hire_date %>
-    <%= form.date_field :hire_date %>
+    <%= form.date_field :hire_date, class:"form-control", placeholder:"Hire Date" %>
   </div>
 
   <div class="field">
-    <%= form.label :job_title %>
-    <%= form.text_field :job_title %>
+    <%= form.text_field :job_title, class:"form-control", placeholder:"Job Title" %>
   </div>
 
     <div class="field">
-    <%= form.label :department %>
-    <%= form.text_field :department %>
+    <%= form.text_field :department, class:"form-control", placeholder:"Department" %>
   </div>
-
+    
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit  %>
   </div>
 <% end %>
+</div>
+</div>

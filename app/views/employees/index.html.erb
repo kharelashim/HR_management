@@ -1,10 +1,24 @@
 
-<h1>Employees Table</h1>
 
+
+
+
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info alert-dismissible" id="customAlert"><%= msg%>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+<%end%>
+
+
+
+
+
+<h1 class="p-3 mb-2 bg-dark text-white  ">Employees Table</h1>
 <br/>
-
-<%= link_to "Add new employee", new_employee_path %>
-
+<h3><%= link_to "Add new employee", new_employee_path %></h3>
 <br/>
 <table class="table table-bordered table-dark">
   <thead>
@@ -19,11 +33,9 @@
       <th scope="col">Actions</th>
     </tr>
   </thead>
-    <tbody>
+  <tbody>
     <% @employee.each do |employee| %>
-  
       <tr>
-    
         <td><%= employee.first_name %></td>
         <td><%= employee.last_name%></td>
         <td><%= employee.email %></td>
@@ -32,15 +44,26 @@
         <td><%= employee.job_title %></td>
         <td><%= employee.department %></td>
         <td>
-        
           <%= link_to "Show", employee_path(employee) %>
-          <%= link_to "Delete", employee, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger btn-sm" %>
+          <%= link_to "Delete", employee_path(employee), data: {"turbo-method": :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-outline-danger btn-sm" %>
           <%= link_to "Edit",   edit_employee_path(employee) %>
         </td>
       </tr>
- 
-    <% end %>
+    <% end %>``
   </tbody>
-</table>  
+</table>
 
 
+<script>
+
+  var closeButton = document.querySelector("#customAlert .close");
+
+
+  var alertElement = document.getElementById("customAlert");
+
+  
+  closeButton.addEventListener("click", function() {
+
+    alertElement.remove();
+  });
+</script>
