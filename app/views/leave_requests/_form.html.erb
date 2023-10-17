@@ -1,0 +1,24 @@
+<div class="row">
+  <div class=" col-lg-3">
+    <%= form_with model: @leave_request do |form| %>
+      <div class="field">
+        <%= form.label :start_date %>
+        <%= form.date_field :start_date , class:"form-control", placeholder:"Start date" %>
+      </div>
+      <div class="field">
+      <%= form.label :end_date %>
+        <%= form.date_field :end_date, class:"form-control", placeholder:"End Date" %>
+      </div>
+      <div class="field">
+      <%= form.label :leave_type %>
+        <%= form.text_field :leave_type, class:"form-control", placeholder:"Leave Type"%>
+      </div>
+      <div class="field">
+        <%= form.collection_select :employee_id, @employees, :id, :first_name,  prompt: "Select a employee" %>
+      </div>
+      <div class="actions">
+        <%= form.submit  %>
+        </div>
+      <% end %>
+  </div>
+</div>  

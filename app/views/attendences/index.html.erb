@@ -1,0 +1,45 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info alert-dismissible" id="customAlert"><%= msg%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<%end%>
+<h1 class="p-3 mb-2 bg-dark text-white  ">Attendence Table</h1>
+<h3 class="attendence bg-dark" ><%= link_to "Add Attendence of employee", new_attendence_path %></h3>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Employee</th>
+      <th scope="col">Check in time</th>
+      <th scope="col">Check out time</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendence.each do |attendence| %>
+      <tr>
+        <td><%= attendence.employee.first_name %>
+          <td><%= attendence.check_in_time&.strftime("%I:%M %p") %></td>
+          <td><%= attendence.check_out_time&.strftime("%I:%M %p") %></td>
+          <td><%= attendence.date %></td>
+        <td>
+          <%= link_to "Delete", attendence_path(attendence), data: {"turbo-method": :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-outline-danger btn-sm" %>
+          <%= link_to "Edit",   edit_attendence_path(attendence) %>
+        </td>
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>
+  <script>  
+    var closeButton = document.querySelector("#customAlert .close");
+
+
+    var alertElement = document.getElementById("customAlert");
+
+
+    closeButton.addEventListener("click", function() {
+
+      alertElement.remove();
+    });
+  </script>

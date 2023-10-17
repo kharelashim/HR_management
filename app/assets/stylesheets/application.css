@@ -1,34 +1,44 @@
 /* .notice { */
-    /* background-color: red; */
-    /* color: green; */
-    /* padding: 10px; */
-    /* text-align: center; */
-  /* } */
+/* background-color: red; */
+/* color: green; */
+/* padding: 10px; */
+/* text-align: center; */
+/* } */
 
-  .show {
-    background-color: rgba(131, 100, 100, 0.753); 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    width: 400px; 
-  }
+.show {
+  background-color: rgba(141, 136, 136, 0.692);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+}
 
-  .name {
-            font-size: 16px; 
-            color: rgb(67, 65, 70);
-            font-weight: bold; 
-            text-decoration: underline; 
-            font-family: Arial, sans-serif; 
-        }
-
+.name {
+  font-size: 16px;
+  color: white
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: Arial, sans-serif;
+}
 
 .button {
-            color: white; 
-            border: none; 
-            padding: 10px 20px;
-            border-radius: 5px; 
-            cursor: pointer; 
-          }
-  
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  
+.add {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 520px;
+  width: 275px;
+}
+
+.attendence { 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 520px;
+  width: 385px;
+}

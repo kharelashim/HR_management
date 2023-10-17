@@ -1,0 +1,75 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info alert-dismissible" id="customAlert"><%= msg%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<%end%>
+<h1 class="p-3 mb-2 bg-dark text-white  ">Leave Requests Table</h1>
+<h3 class="add bg-dark" ><%= link_to "Add Leave Request", new_leave_request_path %></h3>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Employee</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Leave Type</th>
+      <th scope="col">Status</th>
+      <th scope="col">Change Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leave_request.each do |leave_request| %>
+      <tr>
+        <td><%= leave_request.employee.first_name%>
+          <td><%= leave_request.start_date %></td>
+          <td><%= leave_request.end_date%></td>
+          <td><%= leave_request.leave_type %></td>
+          <td><%= leave_request.status%></td>
+          <td>
+        <%= form_tag update_status_path(leave_request), method: :post do %>
+          <%= submit_tag 'Approve', class: 'approve-button' %>
+          <%= submit_tag 'Reject', class: 'reject-button' %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Delete", leave_request_path(leave_request), data: {"turbo-method": :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-outline-danger btn-sm" %>
+        <%= link_to "Edit",   edit_leave_request_path(leave_request) %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<script>
+  var closeButton = document.querySelector("#customAlert .close");
+
+
+  var alertElement = document.getElementById("customAlert");
+
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get the form and buttons by their IDs
+  var statusForm = document.getElementById("status-form");
+  var tickButton = document.getElementById("tick-button");
+  var crossButton = document.getElementById("cross-button");
+
+  // Add click event listeners to the buttons
+  tickButton.addEventListener("click", function() {
+    // Set the value of the hidden input field (status) if needed
+    console.log(tickButton.value);
+    tickButton.value = "Approved";
+    statusForm.submit(tickButton.value);
+  });
+
+  crossButton.addEventListener("click", function() {
+    // Set the value of the hidden input field (status) if needed
+    crossButton.value = "Rejected";
+    statusForm.submit();
+  });
+    });
+    // closeButton.addEventListener("click", function() {
+
+    //   alertElement.remove();
+    // });
+</script>
